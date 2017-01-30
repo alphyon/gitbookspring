@@ -2,5 +2,7 @@
 
 * [Introduction](README.md)
 * [Preparando el Entorno](chapter1.md)
-* [Primer Proyecto](primer-proyecto.md)
+* [Configuracion de aplicacion Base](primer-proyecto.md)
+* MAVEN
+* [Spring Boot](spring-boot.md)
 
