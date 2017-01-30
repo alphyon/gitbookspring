@@ -1,6 +1,6 @@
 # Instalar el Software.
 
-### Recursos que se utilizaran 
+### Recursos que se utilizaran
 
 * Spring -- Boot, Core, MVC, Rest, Security, Loaded,Batch, Data JPA.
 * thymeleaf
@@ -20,13 +20,11 @@ Las herramientas para el desarrollo seran las sigueintes.
 
 * Eclipse
 
-
-
 Valaidar si estan las herramientas instaladas
 
 usamos los comandos en la terminal de nuestro sistema
 
-para validar la version de java usamos 
+para validar la version de java usamos
 
 **java -version**
 
@@ -36,11 +34,21 @@ para validar la version de java usamos
 
 ![](/assets/Captura de pantalla 2017-01-30 a las 13.51.38.png)
 
-para maven 
+para maven
 
 **mvn -v**
 
 ![](/assets/Captura de pantalla 2017-01-30 a las 13.55.16.png)
+
+
+
+
+
+### Inyección de Dependencias
+
+los elelemntos se cargan en un contenedor que estan disponibles cuando se necesitan para estar dispoinibles en el momento adecuado, sin necesidad de crear una nueva isntancia o llamarla en ejecucion.
+
+
 
 
 
