@@ -6,4 +6,6 @@
 * MAVEN
 * [Spring Boot](spring-boot.md)
 * [Agregando Paquetes](agregando-paquetes.md)
+* [Archivos de configuracion](archivos-de-configuracion.md)
+* [Creando una vista](creando-una-vista.md)
 
