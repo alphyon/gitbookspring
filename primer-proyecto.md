@@ -48,5 +48,15 @@ O lo podemos hacer desde la terminal de nuestro equipo para ello vamos a la ubic
 
 **mvn clean install**
 
-al ejecutar el cmando se descarnga las librerias necesarias y ejecuta los test que esten creados para nuestra aplicacion y adicionalmente arranca el servidor de pruebas
+al ejecutar el cmando se descarnga las librerias necesarias y ejecuta los test que esten creados para nuestra aplicacion y adicionalmente arranca el servidor de pruebas.
+
+con esta ejecucion inicial podemos ir al IDE y revisar ls cambios que se han realizado, o poder controlar el inicio o parada de nuestro server para ello vamos al IDE y vamos a la pestaña del Boot Dash y elegimos la opcion local y el nombre de nuesra app
+
+![](/assets/Captura de pantalla 2017-01-30 a las 15.20.20.png)
+
+con los controles de la parte superior de la pestaña podemos iniciar o para la ejecucuion de nuestra aplicacion.
+
+al arrancar nuestra app en la pestaña de la consola debemos ver algo como se muestra en la imagen
+
+![](/assets/Captura de pantalla 2017-01-30 a las 15.22.57.png)con estos pasos realizados ya podemos empezar a desarrollar la logica de nuestra aplicacion 
 
