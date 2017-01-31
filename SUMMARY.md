@@ -8,4 +8,5 @@
 * [Agregando Paquetes](agregando-paquetes.md)
 * [Archivos de configuracion](archivos-de-configuracion.md)
 * [Creando una vista](creando-una-vista.md)
+* [Compartiendo Datos](compartiendo-datos.md)
 
