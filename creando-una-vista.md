@@ -45,11 +45,7 @@ entonces debemos ver lo siguiente en el navegador
 
 ![](/assets/Captura de pantalla 2017-01-30 a las 18.02.37.png)
 
-
-
-En Spring podemos utilizar formas diferentes para poder cargar una plantilla y acceder a ella por una peticion http, para ello usaremos la anotacion 
-
-
+En Spring podemos utilizar formas diferentes para poder cargar una plantilla y acceder a ella por una peticion http, para ello revisemos el siguente codigo: 
 
 ```java
 package com.proyecto.controller;
@@ -63,22 +59,48 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/example")
 public class EjemploController {
-	public static final String EJEMPLO_VIEW = "ejemplo";
-	
-	//primera forma
-	@GetMapping("ejemploString") //forma alterna a @RequestMapping
-	public String ejemploString(){
-		return EJEMPLO_VIEW;
-	}
-	
-	
-	//segunda forma
-	@RequestMapping(value="/ejemplomav", method = RequestMethod.GET)
-	public ModelAndView ejemploMAV(){
-		return new ModelAndView(EJEMPLO_VIEW);
-	}
-}
+    public static final String EJEMPLO_VIEW = "ejemplo";
 
+    //primera forma
+    @GetMapping("ejemploString") //forma alterna a @RequestMapping
+    public String ejemploString(){
+        return EJEMPLO_VIEW;
+    }
+
+
+    //segunda forma
+    @RequestMapping(value="/ejemplomav", method = RequestMethod.GET)
+    public ModelAndView ejemploMAV(){
+        return new ModelAndView(EJEMPLO_VIEW);
+    }
+}
+```
+
+con la anotacion @RequestMapping se define el acceso a las clases y a metodos Spring, en este caso se mapea el acceso o la forma de peticion desde el navegador, 
+
+En el primer metodo podemos observar que hacemos el uso de @GetMapping que es una alternativa que se implemento desde la version 4.3, a el uso de @RequestMapping con el value y el metodo de la peticion, es una forma abreviada de usar la anotacion  si podemos observar en este caso podemos ver que devolvemos un string con el nombre de la platilla que queremosver en el navegador
+
+En el segundo metodo se usa la anotacion de forma tradicional, pero podemos usar la forma abreviada, pero en este caso devolvemos un objeto ModelAndView que devuelve un objeto con la plantilla, ya que el parametro que se pasa es el nombre de la plantilla.
+
+Con esto podemos identificar que tenemos diferentes maneras de acceder a las plantillas.
+
+
+
+### Pasando Datos desde la plantilla  
+
+para psar datos desde nuestros controladores hacia las plantillas de html haremos uso de los elementos que nos brinda el motor de plantillas thymeleaf para ello creamos un archivo html con el siguiente marcado
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Pasando valores</title>
+</head>
+<body>
+	<h2>Hola <span th:text="${nombre}"></span> !!!!</h2>
+</body>
+</html>   
 ```
 
 
