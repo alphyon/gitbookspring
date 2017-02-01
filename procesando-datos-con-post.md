@@ -36,5 +36,43 @@ sol es de aclarar que en este caso por usar el motor de plantillas thymeleaf, as
 </html>
 ```
 
-Ahora creamos el controlador 
+Ahora creamos el controlador que se encarga de manejar las dos vistas y de procesar los datos, creamos el archivo con el siguiente codigo
+
+```java
+package com.proyecto.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.proyecto.model.Persona;
+
+@Controller
+@RequestMapping("/form")
+public class FormController {
+	
+	public static final String FORM_VIEW = "form";
+	public static final String RESULT_VIEW = "resultado";
+	
+	@RequestMapping("/verform")
+	public String showForm(Model model){
+		model.addAttribute("persona", new Persona());
+		return FORM_VIEW;
+	}
+	
+	@PostMapping("/addpersona")
+	public ModelAndView addPersona(@ModelAttribute("persona") Persona personaForm){
+		ModelAndView mav = new ModelAndView(RESULT_VIEW);
+		mav.addObject("persona", personaForm);
+		return mav;
+	}
+
+}
+
+```
+
+El primer metodo solo se encarga de servir al navegador la vista con el formulario, el segundo metodo captura los datos haciendo uso de la anotacion @ModelAttribute y se la pasa a la vista del resultado, como podemos analizar es muy sencillo el trabajar con las anotaciones que nos brinda Spring para el poder procesar datos que se envian desde el cliente.
 
