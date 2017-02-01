@@ -145,6 +145,11 @@ public class Persona {
         this.nombre = nombre;
         this.edad = edad;
     }
+    public Persona() {
+        
+    }
+
+
 
 }
 ```
@@ -159,11 +164,9 @@ podemos ver la siguiente informacion en pantalla
 
 esto significa que todo ha esta de forma correcta y que nuestros datos se estan pasando desde el controlador a la plantilla, pasados por medio de un objeto.
 
-
-
 Lista de datos
 
-cuando neceitamos pasar una lista de datos desde el controlador a la vista debemos realizar las siguientes codificaciones 
+cuando neceitamos pasar una lista de datos desde el controlador a la vista debemos realizar las siguientes codificaciones
 
 primero creamos la clase en java para enviar el listado de personas
 
@@ -181,21 +184,21 @@ import com.proyecto.model.Persona;
 
 @Controller
 public class ListaController {
-	@GetMapping("/lista")
-	public String Personas(Model model) {
-		model.addAttribute("personas", getPersonas());
-		return "lista";
-	}
+    @GetMapping("/lista")
+    public String Personas(Model model) {
+        model.addAttribute("personas", getPersonas());
+        return "lista";
+    }
 
-	private List<Persona> getPersonas() {
-		List<Persona> personas = new ArrayList<>();
-		personas.add(new Persona("Juan", 33));
-		personas.add(new Persona("Maria", 23));
-		personas.add(new Persona("Diego", 32));
-		personas.add(new Persona("Diego", 32));
+    private List<Persona> getPersonas() {
+        List<Persona> personas = new ArrayList<>();
+        personas.add(new Persona("Juan", 33));
+        personas.add(new Persona("Maria", 23));
+        personas.add(new Persona("Diego", 32));
+        personas.add(new Persona("Diego", 32));
 
-		return personas;
-	}
+        return personas;
+    }
 }
 ```
 
@@ -211,20 +214,20 @@ en el metodo que envia los parametros hacia la plantilla, en la propiedad **addA
 <title>Lista de Personas</title>
 </head>
 <body>
-	<table>
-		<thead>
-			<tr>
-				<th>Nombre</th>
-				<th>Edad</th>
-			</tr>
-		</thead>
-		<tbody th:each="persona: ${personas}">
-			<tr>
-				<td th:text="${persona.nombre}"></td>
-				<td th:text="${persona.edad}"></td>
-			</tr>
-		</tbody>
-	</table>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody th:each="persona: ${personas}">
+            <tr>
+                <td th:text="${persona.nombre}"></td>
+                <td th:text="${persona.edad}"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
 ```
@@ -234,6 +237,4 @@ al ejecutar la aplicacion obtendremos el siguiente resultado en el navegador.
 ![](/assets/Captura de pantalla 2017-01-31 a las 17.06.34.png)
 
 como podemos ver segun los ejemplos realizados spring nos permite de una forma simple el poder pasar parametros desde nuestos controladores hacia las vistas, solo debemos de tener en cuenta que datos vamos a enviar para poder crear los metodos y objetos necesarios para tenerlos a disposicion de nuestras vistas.
-
-
 
