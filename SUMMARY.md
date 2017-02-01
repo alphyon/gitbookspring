@@ -9,4 +9,5 @@
 * [Archivos de configuracion](archivos-de-configuracion.md)
 * [Creando una vista](creando-una-vista.md)
 * [Compartiendo Datos](compartiendo-datos.md)
+* [Pasando Parametros desde la vista](pasando-parametros-desde-la-vista.md)
 
