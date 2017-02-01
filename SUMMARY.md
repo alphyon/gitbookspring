@@ -10,5 +10,4 @@
 * [Creando una vista](creando-una-vista.md)
 * [Compartiendo Datos](compartiendo-datos.md)
 * [Procesando Datos desde Vista\(GET\)](pasando-parametros-desde-la-vista.md)
-* [Procesadndo Datos desde Cliente \(POST\)](procesadndo-datos-desde-cliente-(post).md)
 
