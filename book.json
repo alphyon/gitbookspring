@@ -1,0 +1,16 @@
+{
+    "plugins": [
+        "search-languages"
+    ],
+    "pluginsConfig": {
+        "search-languages": {
+            "maxIndexSize": 1000000,
+            "ignoreSpecialCharacters": false,
+            "lang": "es"
+        },
+        "lunr": {
+            "maxIndexSize": 1000000,
+            "ignoreSpecialCharacters": true
+        }
+    }
+}
