@@ -1,0 +1,4 @@
+En el apartado anterior se reviso la forma de procesar los datos enviados desde un request o url, usando el metodo GET, ahora vamos a ver como spring nos permite el procesar peticones usando el metodo POST, que es el metodo habitual que se usa para hacer envios de datos por los formularios web.
+Para esta secion creamos 2 vistas una que contiene el formulario y otra que muestra los datos que se envian 
+
+primero creamos la template del formulario con el siguiente marcado
