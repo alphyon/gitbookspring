@@ -12,4 +12,5 @@
 * [Procesando Datos desde Vista\(GET\)](pasando-parametros-desde-la-vista.md)
 * [Procesando datos con POST](procesando-datos-con-post.md)
 * [Redireciones](redireciones.md)
+* [Control de Errores](control-de-errores.md)
 
