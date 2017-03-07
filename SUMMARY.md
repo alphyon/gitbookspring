@@ -11,4 +11,5 @@
 * [Compartiendo Datos](compartiendo-datos.md)
 * [Procesando Datos desde Vista\(GET\)](pasando-parametros-desde-la-vista.md)
 * [Procesando datos con POST](procesando-datos-con-post.md)
+* [Redireciones](redireciones.md)
 
