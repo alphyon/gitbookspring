@@ -11,7 +11,7 @@ Algunas ocasiones debemos de poder ser capaces de redirigir, peticiones o result
 
 Es un metodo simple usamos la anotacion GetMapping, en el metodo que se crea pasamos un string con la palabra clave "redirect:" junto con el path al cual queremos que se direccione. para este caso usamos el path raiz o sea al ejecutar el codigo y colocamos en el navegador la ruta
 
-> [http://localhost:8080/](http://localhost:8080/)  o [http://localhost:8080/form/](http://localhost:8080/form/)
+[http://localhost:8080/](http://localhost:8080/\)  o [http://localhost:8080/form/]\(http://localhost:8080/form/) o http://localhost:8080/form/ 
 
 automaticamente se redirecciona a la pagina de la vista del formulario.
 
@@ -19,10 +19,10 @@ Ahora podemos usar otra forma la cual se usa un metodo RedirectView para hacer e
 
 ```java
 @GetMapping("/")
-	public RedirectView redirect(){
-		return new RedirectView("/form/verform");
-	}
+    public RedirectView redirect(){
+        return new RedirectView("/form/verform");
+    }
 ```
 
-
+El metodo funciona de manera similar, al ingresar las url al nvagador con 
 
