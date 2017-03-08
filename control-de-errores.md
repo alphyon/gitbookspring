@@ -16,6 +16,26 @@ En este caso en nuestro proyecto debe estar con la siguiente estructura.
 
 como vemos ahi esta la carpeta error y el codigo fuente del codigo del archivo 404.html, podemos hacer lo mismos con los errores 500, con solo agregar un archivo con el nombre 500.html, spring mostrara nuestra vista personalizada.
 
+Realizemos un ejemplo de codigo que nos lance en error 500 en la respuesta creamos un controlador nuevo y agregamos el siguiente codigo
+
+```java
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("showerror")
+public class ErrorExampleController {
+  @RequestMapping("show")
+  public String errorLaunch(){
+	  int c = 4/0;
+	  
+	  return "Test" + c;
+  }
+}
+```
+
+
+
 como podemos ver en la siguiente imagen
 
 ![](/assets/Captura de pantalla 2017-03-07 a las 17.03.00.png)
