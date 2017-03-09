@@ -27,16 +27,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ErrorExampleController {
   @RequestMapping("show")
   public String errorLaunch(){
-	  int c = 4/0;
-	  
-	  return "Test" + c;
+      int c = 4/0;
+
+      return "Test" + c;
   }
 }
 ```
 
+vamos al navegador y escribimos la siguiente ruta
 
+> http://localhost:8080/showerror/show
 
-como podemos ver en la siguiente imagen
+obtendremos el siguiente resultado en la vista
 
 ![](/assets/Captura de pantalla 2017-03-07 a las 17.03.00.png)
 
@@ -66,4 +68,47 @@ public class ErrorsController {
 ```
 
 Al agregar este controlador y ejecutamos alguna pagina con error ya no se genera la traza por defecto en el servidor, esto es por que estamos definiendo que tendremos el control de esta informacion con el controlador que acabamos de crear.
+
+## Logs
+
+A la hora de ejecutar nustros codigos es importante tener una bitacora de informacion que nos sirva para poder tener nociones de las ejecuciones de los procesos, advertencias, y muestra de errorres con un nivel de informacion que pueda ser util para los administradores de las aplicaciones, es por ello que es bueno agregar elementos que nos permitan lanzar estas trazas o logs para que al ejecutarse tengamos esa informacion de manenra mas controlada y ordenada.
+
+vamos a realizar un ejemplo del uso de uso de log, estos logs se manejan a nivel de consola, no se guardan solo son informacion que quedan mientras el servidor este funcionando
+
+en nuestro controlador de ejemplo de manejo de los errores lo modificamos de esta forma
+
+```java
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("showerror")
+public class ErrorExampleController {
+	private static final Log LOGGER = LogFactory.getLog(ErrorExampleController.class);
+  @RequestMapping("show")
+  public String errorLaunch(){
+	  LOGGER.info("INFO TRACE");
+	  LOGGER.warn("WARNING TRACE");
+	  LOGGER.error("ERROR TRACE");
+	  LOGGER.debug("DEBUG TRACE");
+	  int c = 4/0;
+	  
+	  return "Test" + c;
+  }
+}
+```
+
+al ejecutar el servidor y hacemos la prueba ingresando a la url
+
+> http://localhost:8080/showerror/error/
+
+obtendremos la pagina de error personalizada pero si vamos a la consola del servidor en ejecucion vemos lo siguiente
+
+![](/assets/Captura de pantalla 2017-03-08 a las 15.08.14.png)
+
+en los logs podemos manejar diferentes tipos o niveles de logs que van desde nivel de informacion, o errores. De el desarollo que hacemos depende el uso de cada nivel de uso de logs o la informacion que debemos mostrar.
+
+
 
