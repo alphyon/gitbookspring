@@ -59,7 +59,7 @@ cremos una vista solo para realizar una prueba de la carga del compnente, en nue
 <title>Prueba Componente</title>
 </head>
 <body>
-	<p>Test Componente -- ve las trazas en el server</p>
+    <p>Test Componente -- ve las trazas en el server</p>
 </body>
 </html>
 ```
@@ -68,7 +68,13 @@ al ejecutar nuestro servidor y probar la url
 
 > [http://localhost:8080/component/test](http://localhost:8080/component/test)
 
+en la pagina solo nos carga el mensaje de la vista
 
+![](/assets/Captura de pantalla 2017-03-10 a las 11.39.54.png)
+
+Ahora en la consola de nuestro server podemos observar una salida 
+
+![](/assets/Captura de pantalla 2017-03-10 a las 11.40.08.png)que es el mensaje que definimos en la clase que anotamos con @Component, que su funcion era escribir en el log un mensaje, lo importante en este caso es enfocarnos en la manera en como spring nos permite reutilizar elementos, se hace de una manera en la cual nos debemos mas enfocar en nuestra logica que en las configuraciones para poder utilizarlos.
 
 
 
