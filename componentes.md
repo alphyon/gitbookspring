@@ -5,6 +5,8 @@ Los componentes de Spring son elelemntos que permiten de una manera mas practica
 para crear un componente creamos una clase con el siguiente codigo, como un buena practica los componentes se guardan en un paquete.
 
 ```java
+package com.proyecto.components;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
@@ -24,6 +26,8 @@ en este caso lo basico de dicho componentes es la anotacion @Component y el nomb
 para usar este control creamos otra clase en nuestros controladores, hacemos el sigueinte codigo
 
 ```java
+package com.proyecto.controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
