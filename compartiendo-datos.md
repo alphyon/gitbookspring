@@ -14,7 +14,7 @@ para psar datos desde nuestros controladores hacia las plantillas de html haremo
 <body>
     <h2>Hola <span th:text="${nombre}"></span> !!!!</h2>
 </body>
-</html>   
+</html>
 ```
 
 donde indicamos con un marcado especial el uso de un elemento que sera el que se encargue de esperar a que se envie el dato desde el controlador y este es el atributo que agregamos a la etiqueta span
@@ -146,7 +146,7 @@ public class Persona {
         this.edad = edad;
     }
     public Persona() {
-        
+
     }
 
 
@@ -164,7 +164,7 @@ podemos ver la siguiente informacion en pantalla
 
 esto significa que todo ha esta de forma correcta y que nuestros datos se estan pasando desde el controlador a la plantilla, pasados por medio de un objeto.
 
-Lista de datos
+#### Lista de datos
 
 cuando neceitamos pasar una lista de datos desde el controlador a la vista debemos realizar las siguientes codificaciones
 
