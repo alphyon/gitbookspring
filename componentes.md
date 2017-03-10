@@ -78,7 +78,7 @@ Ahora en la consola de nuestro server podemos observar una salida
 
 Vamos a crear un componente mas y lo vamos a asociar a una configuracion que nos va ser util para definir los tiempos de ejecucion de un request
 
-para ello creamos una clase con el sigueinte codigo 
+para ello creamos una clase con el sigueinte codigo
 
 ```java
 import javax.servlet.http.HttpServletRequest;
@@ -91,26 +91,26 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 @Component("requestTime")
 public class RequestTimeComponent extends HandlerInterceptorAdapter{
-	
-	private static final Log LOGGER = LogFactory.getLog(RequestTimeComponent.class);
-	
-	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
-		request.setAttribute("startTime", System.currentTimeMillis());
-		return true;
-	}
 
-	@Override	
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, 
-	Object handler, Exception ex)
-			throws Exception {
-		long startTime = (long)request.getAttribute("startTime");
-		LOGGER.info("Request Time: " + (System.currentTimeMillis()-startTime) 
-		+ "ms URL de la peticion: " + request.getRequestURL().toString());
-	}
+    private static final Log LOGGER = LogFactory.getLog(RequestTimeComponent.class);
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+            throws Exception {
+        request.setAttribute("startTime", System.currentTimeMillis());
+        return true;
+    }
+
+    @Override    
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, 
+    Object handler, Exception ex)
+            throws Exception {
+        long startTime = (long)request.getAttribute("startTime");
+        LOGGER.info("Request Time: " + (System.currentTimeMillis()-startTime) 
+        + "ms URL de la peticion: " + request.getRequestURL().toString());
+    }
 }
 ```
 
-
+esta componente que cremos se encarga de que en cada peticion que hagamos se dispare un metodo que se ejecuta antes que otros, y guardara el tiempo en milisegundos, que utilizaremos para calcular el tiempo total de la peticion que lanzaremos con el segundo metodo que se ejecutar despues que se complete la peticion que lanzamos
 
