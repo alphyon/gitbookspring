@@ -114,3 +114,32 @@ public class RequestTimeComponent extends HandlerInterceptorAdapter{
 
 esta componente que cremos se encarga de que en cada peticion que hagamos se dispare un metodo que se ejecuta antes que otros, y guardara el tiempo en milisegundos, que utilizaremos para calcular el tiempo total de la peticion que lanzaremos con el segundo metodo que se ejecutar despues que se complete la peticion que lanzamos
 
+Pero para que esto se ejecute y funcione como esperamos debemos de hacer un paso adicional y es crear un interceptor que sera el encargado de que se lanze la ejecucion de los metodos anteriores.
+
+creamos un paquete llamado **configuration** para crear una clase de configuracion con el siguiente codigo
+
+```java
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import com.proyecto.components.RequestTimeComponent;
+
+@Configuration
+public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
+
+	@Autowired
+	@Qualifier("requestTime")
+	private RequestTimeComponent requestTimer;
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(requestTimer);
+	}
+	
+}
+```
+
+
+
