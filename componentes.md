@@ -59,14 +59,16 @@ cremos una vista solo para realizar una prueba de la carga del compnente, en nue
 <title>Prueba Componente</title>
 </head>
 <body>
-<p>Test Componente -- ve las trazas en el server</p>
+	<p>Test Componente -- ve las trazas en el server</p>
 </body>
 </html>
 ```
 
 al ejecutar nuestro servidor y probar la url
 
-> http://localhost:8080/component/test
+> [http://localhost:8080/component/test](http://localhost:8080/component/test)
+
+
 
 
 
