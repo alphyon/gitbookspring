@@ -55,6 +55,8 @@ Ahora en este caso cuando se da un error, en el server se lanza una traza con lo
 podemos agregar un controlador para poder facilitar el manejo de dicha informacion a la hora que se genera algun tipo de excepcion en el servidor para ello vamos a crear un nuevo controlador con el siguiente codigo
 
 ```java
+package com.proyecto.controller;
+
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
