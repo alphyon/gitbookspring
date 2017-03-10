@@ -141,5 +141,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 }
 ```
 
+hoy cada vez que hagamos una peticion al servidor podemos ver en las trazas por el componente que creamos el tiempo que se ejecuta cada peticion
 
+![](/assets/Captura de pantalla 2017-03-10 a las 15.57.25.png)esto es gracias a el componente creado y la clase de configuracion que creamos.
 
