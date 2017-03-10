@@ -72,9 +72,45 @@ en la pagina solo nos carga el mensaje de la vista
 
 ![](/assets/Captura de pantalla 2017-03-10 a las 11.39.54.png)
 
-Ahora en la consola de nuestro server podemos observar una salida 
+Ahora en la consola de nuestro server podemos observar una salida
 
 ![](/assets/Captura de pantalla 2017-03-10 a las 11.40.08.png)que es el mensaje que definimos en la clase que anotamos con @Component, que su funcion era escribir en el log un mensaje, lo importante en este caso es enfocarnos en la manera en como spring nos permite reutilizar elementos, se hace de una manera en la cual nos debemos mas enfocar en nuestra logica que en las configuraciones para poder utilizarlos.
+
+Vamos a crear un componente mas y lo vamos a asociar a una configuracion que nos va ser util para definir los tiempos de ejecucion de un request
+
+para ello creamos una clase con el sigueinte codigo 
+
+```java
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+@Component("requestTime")
+public class RequestTimeComponent extends HandlerInterceptorAdapter{
+	
+	private static final Log LOGGER = LogFactory.getLog(RequestTimeComponent.class);
+	
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		request.setAttribute("startTime", System.currentTimeMillis());
+		return true;
+	}
+
+	@Override	
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, 
+	Object handler, Exception ex)
+			throws Exception {
+		long startTime = (long)request.getAttribute("startTime");
+		LOGGER.info("Request Time: " + (System.currentTimeMillis()-startTime) 
+		+ "ms URL de la peticion: " + request.getRequestURL().toString());
+	}
+}
+```
 
 
 
