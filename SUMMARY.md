@@ -13,4 +13,5 @@
 * [Procesando datos con POST](procesando-datos-con-post.md)
 * [Redireciones](redireciones.md)
 * [Control de Errores](control-de-errores.md)
+* [Componentes](componentes.md)
 
