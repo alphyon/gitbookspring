@@ -130,14 +130,14 @@ import com.proyecto.components.RequestTimeComponent;
 @Configuration
 public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 
-	@Autowired
-	@Qualifier("requestTime")
-	private RequestTimeComponent requestTimer;
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(requestTimer);
-	}
-	
+    @Autowired
+    @Qualifier("requestTime")
+    private RequestTimeComponent requestTimer;
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(requestTimer);
+    }
+
 }
 ```
 
