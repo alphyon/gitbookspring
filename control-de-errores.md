@@ -19,6 +19,8 @@ como vemos ahi esta la carpeta error y el codigo fuente del codigo del archivo 4
 Realizemos un ejemplo de codigo que nos lance en error 500 en la respuesta creamos un controlador nuevo y agregamos el siguiente codigo
 
 ```java
+package com.proyecto.controller;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -36,7 +38,7 @@ public class ErrorExampleController {
 
 vamos al navegador y escribimos la siguiente ruta
 
-> http://localhost:8080/showerror/show
+> [http://localhost:8080/showerror/show](http://localhost:8080/showerror/show)
 
 obtendremos el siguiente resultado en la vista
 
@@ -86,29 +88,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("showerror")
 public class ErrorExampleController {
-	private static final Log LOGGER = LogFactory.getLog(ErrorExampleController.class);
+    private static final Log LOGGER = LogFactory.getLog(ErrorExampleController.class);
   @RequestMapping("show")
   public String errorLaunch(){
-	  LOGGER.info("INFO TRACE");
-	  LOGGER.warn("WARNING TRACE");
-	  LOGGER.error("ERROR TRACE");
-	  LOGGER.debug("DEBUG TRACE");
-	  int c = 4/0;
-	  
-	  return "Test" + c;
+      LOGGER.info("INFO TRACE");
+      LOGGER.warn("WARNING TRACE");
+      LOGGER.error("ERROR TRACE");
+      LOGGER.debug("DEBUG TRACE");
+      int c = 4/0;
+
+      return "Test" + c;
   }
 }
 ```
 
 al ejecutar el servidor y hacemos la prueba ingresando a la url
 
-> http://localhost:8080/showerror/error/
+> [http://localhost:8080/showerror/error/](http://localhost:8080/showerror/error/)
 
 obtendremos la pagina de error personalizada pero si vamos a la consola del servidor en ejecucion vemos lo siguiente
 
 ![](/assets/Captura de pantalla 2017-03-08 a las 15.08.14.png)
 
 en los logs podemos manejar diferentes tipos o niveles de logs que van desde nivel de informacion, o errores. De el desarollo que hacemos depende el uso de cada nivel de uso de logs o la informacion que debemos mostrar.
-
-
 
