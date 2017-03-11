@@ -85,6 +85,8 @@ Vamos a crear un componente mas y lo vamos a asociar a una configuracion que nos
 para ello creamos una clase con el sigueinte codigo
 
 ```java
+package com.proyecto.components;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -123,6 +125,8 @@ Pero para que esto se ejecute y funcione como esperamos debemos de hacer un paso
 creamos un paquete llamado **configuration** para crear una clase de configuracion con el siguiente codigo
 
 ```java
+package com.proyecto.configuration;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
