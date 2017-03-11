@@ -113,5 +113,13 @@ public class ListaController {
 }
 ```
 
+al ejecutar la url
+
+> http://localhost:8080/lista
+
+obtendremos la lista de las personoas pero en este caso la obtenemos desde el servicio y no como estaba declarada antes en el mismo controlador.
+
+![](/assets/Captura de pantalla 2017-03-10 a las 18.25.20.png)
+
 
 
