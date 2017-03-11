@@ -48,7 +48,7 @@ import java.util.List;
 import com.proyecto.model.Persona;
 
 public interface EjemploServicio {
-	public abstract List<Persona> getListaPersonas();
+    public abstract List<Persona> getListaPersonas();
 }
 ```
 
@@ -68,16 +68,16 @@ import com.proyecto.service.EjemploServicio;
 @Service("EjemploServicio")
 public class EjmploServicioImp implements EjemploServicio {
 
-	@Override
-	public List<Persona> getListaPersonas() {
-		List<Persona> personas = new ArrayList<>();
-		personas.add(new Persona("Juan", 33));
-		personas.add(new Persona("Maria", 23));
-		personas.add(new Persona("Diego", 32));
-		personas.add(new Persona("Diego", 32));
+    @Override
+    public List<Persona> getListaPersonas() {
+        List<Persona> personas = new ArrayList<>();
+        personas.add(new Persona("Juan", 33));
+        personas.add(new Persona("Maria", 23));
+        personas.add(new Persona("Diego", 32));
+        personas.add(new Persona("Diego", 32));
 
-		return personas;
-	}
+        return personas;
+    }
 }
 ```
 
@@ -85,9 +85,9 @@ en esta clase usamos la anotacion @service, que es una anotacion especial para i
 
 Aqui solamnete lo que hacemos es meter una lista de datos, solo es un ejemplo base pero podriamos pones una logica para extraer los datos de una base de datos.
 
-Ahora para usar el servicio, 
+Ahora para usar el servicio, modificamos la clase que tenemos para mostrar la lista de personas en la vista con el sigueinte codigo.
 
-```
+```java
 package com.proyecto.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,16 +100,16 @@ import com.proyecto.service.EjemploServicio;
 
 @Controller
 public class ListaController {
-	
-	@Autowired
-	@Qualifier("EjemploServicio")
-	private EjemploServicio ejemploServicio;
-		
-	@GetMapping("/lista")
-	public String Personas(Model model) {
-		model.addAttribute("personas", ejemploServicio.getListaPersonas());
-		return "lista";
-	}	
+
+    @Autowired
+    @Qualifier("EjemploServicio")
+    private EjemploServicio ejemploServicio;
+
+    @GetMapping("/lista")
+    public String Personas(Model model) {
+        model.addAttribute("personas", ejemploServicio.getListaPersonas());
+        return "lista";
+    }    
 }
 ```
 
