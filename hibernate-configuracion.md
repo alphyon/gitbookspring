@@ -44,7 +44,7 @@ Ahora en el archivo application.yml, agregamos las sigueintes configuraciones.
 
 ##### para mysql
 
-```yml
+```yaml
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/mydb
@@ -63,7 +63,7 @@ spring:
 
 ##### para oracle
 
-```yml
+```yaml
 spring:
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
