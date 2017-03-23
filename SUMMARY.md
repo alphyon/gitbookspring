@@ -14,4 +14,5 @@
 * [Control de Errores](control-de-errores.md)
 * [Componentes](componentes.md)
 * [Servicios](servicios.md)
+* [Hibernate Configuración](hibernate-configuracion.md)
 
