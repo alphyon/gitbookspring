@@ -15,4 +15,5 @@
 * [Componentes](componentes.md)
 * [Servicios](servicios.md)
 * [Hibernate Configuración](hibernate-configuracion.md)
+* [Entities JPA](entities-jpa.md)
 

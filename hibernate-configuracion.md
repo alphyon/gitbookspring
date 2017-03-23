@@ -80,5 +80,5 @@ spring:
       ddl-auto: create-drop
 ```
 
-
+segun el gestor y las configuraciones del mismo debemos cambiar algunos valores \(username, password, dialect u otros\). Con estas configuraciones podemos tener listo nuestro entorno para la persistencia de los datos.
 
