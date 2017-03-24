@@ -1,6 +1,6 @@
 # Instalar el Software.
 
-### Recursos que se utilizaran
+## Recursos que se utilizaran
 
 * Spring -- Boot, Core, MVC, Rest, Security, Loaded,Batch, Data JPA.
 * thymeleaf
@@ -8,9 +8,9 @@
 * QueryDSL
 * Log4j
 
-### Herramienta para el Desarrollo
+## Herramienta para el Desarrollo
 
-Las herramientas para el desarrollo seran las sigueintes.
+Las herramientas para el desarrollo serán las siguientes.
 
 * Java JDK
 
@@ -20,11 +20,7 @@ Las herramientas para el desarrollo seran las sigueintes.
 
 * Eclipse
 
-Valaidar si estan las herramientas instaladas
-
-usamos los comandos en la terminal de nuestro sistema
-
-para validar la version de java usamos
+Validar si están las herramientas instaladas, usamos los comandos en la terminal de nuestro sistema para validar la versión de java y el compilador de java usamos los siguientes comandos
 
 **java -version**
 
@@ -34,21 +30,13 @@ para validar la version de java usamos
 
 ![](/assets/Captura de pantalla 2017-01-30 a las 13.51.38.png)
 
-para maven
+para validar la version instalada de maven
 
 **mvn -v**
 
 ![](/assets/Captura de pantalla 2017-01-30 a las 13.55.16.png)
 
+## Inyección de Dependencias
 
-
-
-
-### Inyección de Dependencias
-
-los elelemntos se cargan en un contenedor que estan disponibles cuando se necesitan para estar dispoinibles en el momento adecuado, sin necesidad de crear una nueva isntancia o llamarla en ejecucion.
-
-
-
-
+Los elementos se cargan en un contenedor que estan disponibles cuando se necesitan para estar dispoinibles en el momento adecuado, sin necesidad de crear una nueva instancia o llamarla en ejecución.
 

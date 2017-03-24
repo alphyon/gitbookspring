@@ -1,6 +1,4 @@
-para crear una vista primero creamos una platilla, en la carpeta **resources/templates** creamos un nuevo archivo html con el nombre hola mundo
-
-con el siguiente marcado
+Para crear una vista primero creamos una platilla, en la carpeta **resources/templates** creamos un nuevo archivo html con el nombre hola mundo, con el siguiente marcado
 
 ```html
 <!DOCTYPE html>
@@ -15,9 +13,7 @@ con el siguiente marcado
 </html>
 ```
 
-y en creamos el controlador para poder lanzar esta vista al navegador cuando se haga la corespondiente llamda http
-
-en la carpeta java/main/controller/ creamos el archivo **HolaMundoController.java **y agregamos el siguiente codigo
+Y en creamos el controlador para poder lanzar esta vista al navegador cuando se haga la corespondiente llamda http en la carpeta java/main/controller/ creamos el archivo **HolaMundoController.java **y agregamos el siguiente código
 
 ```java
 package com.proyecto.controller;
@@ -37,15 +33,15 @@ public class HolaMundoController {
 }
 ```
 
-ponemos en ejecucion nuestra app y al teminar de cargar vamos al navegado e introducimos la sigueinte url
+Ponemos en ejecución nuestra app y al teminar de cargar vamos al navegado e introducimos la siguiente url
 
 > [http://localhost:8080/say/holamundo](http://localhost:8080/say/holamundo)
 
-entonces debemos ver lo siguiente en el navegador
+Entonces debemos ver lo siguiente en el navegador
 
 ![](/assets/Captura de pantalla 2017-01-30 a las 18.02.37.png)
 
-En Spring podemos utilizar formas diferentes para poder cargar una plantilla y acceder a ella por una peticion http, para ello revisemos el siguente codigo:
+En Spring podemos utilizar formas diferentes para poder cargar una plantilla y acceder a ella por una petición http, para ello revisemos el siguiente código:
 
 ```java
 package com.proyecto.controller;
@@ -76,15 +72,13 @@ public class EjemploController {
 }
 ```
 
-con la anotacion @RequestMapping se define el acceso a las clases y a metodos Spring, en este caso se mapea el acceso o la forma de peticion desde el navegador,
+Con la anotación @RequestMapping se define el acceso a las clases y a métodos Spring, en este caso se mapea el acceso o la forma de petición desde el navegador, en el primer método podemos observar que hacemos el uso de @GetMapping que es una alternativa que se implementa desde la versión 4.3, a el uso de @RequestMapping con el value y el método de la petición, es una forma abreviada de usar la anotación si podemos observar en este caso podemos ver que devolvemos un string con el nombre de la platilla que queremos mostrar en el navegador.
 
-En el primer metodo podemos observar que hacemos el uso de @GetMapping que es una alternativa que se implemento desde la version 4.3, a el uso de @RequestMapping con el value y el metodo de la peticion, es una forma abreviada de usar la anotacion  si podemos observar en este caso podemos ver que devolvemos un string con el nombre de la platilla que queremosver en el navegador
-
-En el segundo metodo se usa la anotacion de forma tradicional, pero podemos usar la forma abreviada, pero en este caso devolvemos un objeto ModelAndView que devuelve un objeto con la plantilla, ya que el parametro que se pasa es el nombre de la plantilla.
+En el segundo método se usa la anotación de forma tradicional, pero podemos usar la forma abreviada, pero en este caso devolvemos un objeto ModelAndView que devuelve un objeto con la plantilla, ya que el parámetro que se pasa es el nombre de la plantilla.
 
 Con esto podemos identificar que tenemos diferentes maneras de acceder a las plantillas.
 
-###  
+### 
 
 
 

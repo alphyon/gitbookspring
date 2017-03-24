@@ -1,10 +1,8 @@
 # Configuracion del proyecto con Hibernate.
 
-vamos a realizar las configuraciones basicas para poder usar conecciones a base de datos, usando JPA con Hibernate lo primero que tenemos que  hacer es identificar, el motor de la base de datos que se va a utilizar para generar la persistencia de los datos.
+Vamos a realizar las configuraciones básicas para poder usar conexiones a base de datos, usando JPA con Hibernate lo primero que tenemos que hacer es identificar, el motor de la base de datos que se va a utilizar para generar la persistencia de los datos. Vamos a realizar 2 tipos de configuraciones una enfocada a **mysql** y la otra a **Oracle 11g.**
 
-vamos a realizar 2 tipos de configuraciones una enfocada a mysql y la otra a oracle 11g.
-
-primero configuramos las dependencia para la gestion de los datos, en el pom.xml agregamos lo siguiente.
+Primero configuramos las dependencia para la gestion de los datos, en el pom.xml agregamos lo siguiente.
 
 ```xml
 <dependency>
@@ -13,9 +11,9 @@ primero configuramos las dependencia para la gestion de los datos, en el pom.xml
 </dependency>
 ```
 
-despues agregamos el driver segun el motor a la base de datos que nos conectaresmos.
+Despues agregamos el driver segun el motor a la base de datos que nos conectáremos.
 
-##### para mysql
+##### Para mysql
 
 ```xml
 <dependency>
@@ -24,13 +22,13 @@ despues agregamos el driver segun el motor a la base de datos que nos conectares
 </dependency>
 ```
 
-##### para Oracle
+##### Para Oracle
 
-primero debemos, hacer una configuracion basica vamos a registrar el driver de oracle en el repositorio local de maven , primero se debe descargar el driver, y con esto debemos ejecutar en una terminal el siguiente comando.
+Primero debemos, hacer una configuración básica vamos a registrar el driver de Oracle en el repositorio local de maven, se debe descargar el driver, con la descarga realizada debemos ejecutar en una terminal el siguiente comando.
 
 > mvn install:install-file -Dfile=ojdbc7.jar  -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0.1 -Dpackaging=jar
 
-con este comando realizamos un repositorio local con el driver de oracle para poder agregarlo a las dependencias del proyecto, ya con esto ejecutado la dependencia en el pom.xml debe quedar de esta forma
+Con esta instrucción realizamos un repositorio local con el driver de Oracle para poder agregarlo a las dependencias del proyecto, ya con esto ejecutado la dependencia en el pom.xml debe quedar de esta forma
 
 ```xml
 <dependency>
@@ -40,7 +38,7 @@ con este comando realizamos un repositorio local con el driver de oracle para po
 </dependency>
 ```
 
-Ahora en el archivo application.yml, agregamos las sigueintes configuraciones.
+Ahora en el archivo **application.ym**l, agregamos las siguientes configuraciones.
 
 ##### para mysql
 
@@ -61,7 +59,7 @@ spring:
         dialect: org.hibernate.dialect.MySQL5Dialect
 ```
 
-##### para oracle
+##### para Oracle
 
 ```yaml
 spring:
@@ -80,5 +78,5 @@ spring:
       ddl-auto: create-drop
 ```
 
-segun el gestor y las configuraciones del mismo debemos cambiar algunos valores \(username, password, dialect u otros\). Con estas configuraciones podemos tener listo nuestro entorno para la persistencia de los datos.
+Según el gestor y las configuraciones del mismo debemos cambiar algunos valores \(username, password, dialect u otros\). Con estas configuraciones podemos tener listo nuestro entorno para la persistencia de los datos.
 

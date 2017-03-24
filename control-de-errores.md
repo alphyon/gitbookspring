@@ -1,12 +1,10 @@
-En esta parte vamos a revisar un punto adicional es una redireccion especial, hacia paginas de errores, spring por defecto cuando no se encuentra un recurso nos muestra la sigueinte pagina
+En esta parte vamos a revisar un punto adicional es una redirección especial, hacia páginas de errores, spring por defecto cuando no se encuentra un recurso nos muestra la siguiente página .![](/assets/Captura de pantalla 2017-03-07 a las 15.43.41.png)
 
-![](/assets/Captura de pantalla 2017-03-07 a las 15.43.41.png)
-
-Esta pagina de error la provee por defecto spring boot,  y esta configurada para que se muestre por defecto, recordemos estamos usando una version base de tomcat, entonces esa no seria la pagina que veriamos al no encontrarse el recurso en el servidor.
+Esta página de error la provee por defecto spring boot, y está configurada para que se muestre por defecto, recordemos estamos usando una versión base de tomcat, entonces esa no sería la página que veríamos al no encontrarse el recurso en el servidor.
 
 ![](/assets/Captura de pantalla 2017-03-07 a las 16.14.38.png)
 
-Ahora tenemos la opcion de crear una pagina personalizada, la cual sera la que reemplazara a la pagina por defecto del spring boot, para ello solo debemos de crear una carpeta llamada **error** dentro de la carpeta **template** de nuestro proyecto, por defecto Spring verifica si esta carpeta y dentro de ella existe un archivo con nombre igual al codigo de error que se debe mostrar para este caso debe existir el archivo **404.html **en la siguiente imagen se muestra el ejemplo de una pagina personalizada
+Ahora tenemos la opción de crear una página personalizada, la cual será la que reemplazará a la página por defecto del spring boot, para ello solo debemos de crear una carpeta llamada **error** dentro de la carpeta **template** de nuestro proyecto, por defecto Spring verifica si esta carpeta y dentro de ella existe un archivo con nombre igual al código de error que se debe mostrar para este caso debe existir el archivo **404.html** en la siguiente imagen se muestra el ejemplo de una página personalizada
 
 ![](/assets/Captura de pantalla 2017-03-07 a las 16.34.08.png)
 
@@ -14,9 +12,9 @@ En este caso en nuestro proyecto debe estar con la siguiente estructura.
 
 ![](/assets/Captura de pantalla 2017-03-07 a las 17.22.03.png)
 
-como vemos ahi esta la carpeta error y el codigo fuente del codigo del archivo 404.html, podemos hacer lo mismos con los errores 500, con solo agregar un archivo con el nombre 500.html, spring mostrara nuestra vista personalizada.
+Como vemos ahí está la carpeta error y el código fuente del código del archivo 404.html, podemos hacer lo mismos con los errores 500, con solo agregar un archivo con el nombre 500.html, spring mostrara nuestra vista personalizada.
 
-Realizemos un ejemplo de codigo que nos lance en error 500 en la respuesta creamos un controlador nuevo y agregamos el siguiente codigo
+Realicemos un ejemplo de código que nos lance en error 500 en la respuesta creamos un controlador nuevo y agregamos el siguiente código
 
 ```java
 package com.proyecto.controller;
@@ -44,7 +42,7 @@ obtendremos el siguiente resultado en la vista
 
 ![](/assets/Captura de pantalla 2017-03-07 a las 17.03.00.png)
 
-en nuestro proyecto la estructura queda de la siguiente manera.
+En nuestro proyecto la estructura queda de la siguiente manera.
 
 ![](/assets/Captura de pantalla 2017-03-07 a las 17.18.43.png)
 
@@ -52,7 +50,7 @@ Ahora en este caso cuando se da un error, en el server se lanza una traza con lo
 
 ![](/assets/Captura de pantalla 2017-03-07 a las 17.24.42.png)
 
-podemos agregar un controlador para poder facilitar el manejo de dicha informacion a la hora que se genera algun tipo de excepcion en el servidor para ello vamos a crear un nuevo controlador con el siguiente codigo
+Podemos agregar un controlador para poder facilitar el manejo de dicha información a la hora que se genera algún tipo de excepción en el servidor para ello vamos a crear un nuevo controlador con el siguiente código.
 
 ```java
 package com.proyecto.controller;
@@ -71,15 +69,13 @@ public class ErrorsController {
 }
 ```
 
-Al agregar este controlador y ejecutamos alguna pagina con error ya no se genera la traza por defecto en el servidor, esto es por que estamos definiendo que tendremos el control de esta informacion con el controlador que acabamos de crear.
+Al agregar este controlador y ejecutamos alguna página con error ya no se genera la traza por defecto en el servidor, esto es porque estamos definiendo que tendremos el control de esta información con el controlador que acabamos de crear.
 
 ## Logs
 
-A la hora de ejecutar nustros codigos es importante tener una bitacora de informacion que nos sirva para poder tener nociones de las ejecuciones de los procesos, advertencias, y muestra de errorres con un nivel de informacion que pueda ser util para los administradores de las aplicaciones, es por ello que es bueno agregar elementos que nos permitan lanzar estas trazas o logs para que al ejecutarse tengamos esa informacion de manenra mas controlada y ordenada.
+A la hora de ejecutar nuestros códigos es importante tener una bitácora de información que nos sirva para poder tener nociones de las ejecuciones de los procesos, advertencias, y muestra de errores con un nivel de información que pueda ser útil para los administradores de las aplicaciones, es por ello que es bueno agregar elementos que nos permitan lanzar estas trazas o logs para que al ejecutarse tengamos esa información de manera mas controlada y ordenada.
 
-vamos a realizar un ejemplo del uso de uso de log, estos logs se manejan a nivel de consola, no se guardan solo son informacion que quedan mientras el servidor este funcionando
-
-en nuestro controlador de ejemplo de manejo de los errores lo modificamos de esta forma
+Vamos a realizar un ejemplo del uso de uso de log, estos logs se manejan a nivel de consola, no se guardan solo son información que quedan mientras el servidor esté funcionando, en nuestro controlador de ejemplo de manejo de los errores lo modificamos de esta forma.
 
 ```java
 import org.apache.commons.logging.Log;
@@ -104,13 +100,13 @@ public class ErrorExampleController {
 }
 ```
 
-al ejecutar el servidor y hacemos la prueba ingresando a la url
+Al ejecutar el servidor y hacemos la prueba ingresando a la url
 
 > [http://localhost:8080/showerror/error/](http://localhost:8080/showerror/error/)
 
-obtendremos la pagina de error personalizada pero si vamos a la consola del servidor en ejecucion vemos lo siguiente
+Obtendremos la página de error personalizada pero si vamos a la consola del servidor en ejecución vemos lo siguiente
 
 ![](/assets/Captura de pantalla 2017-03-08 a las 15.08.14.png)
 
-en los logs podemos manejar diferentes tipos o niveles de logs que van desde nivel de informacion, o errores. De el desarollo que hacemos depende el uso de cada nivel de uso de logs o la informacion que debemos mostrar.
+En los logs podemos manejar diferentes tipos o niveles de logs que van desde nivel de información, o errores. Del desarrollo que hacemos depende el uso de cada nivel de uso de logs o la información que debemos mostrar.
 

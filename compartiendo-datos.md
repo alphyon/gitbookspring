@@ -1,8 +1,8 @@
-### Pasando Datos desde la plantilla
+# Pasando Datos desde la plantilla
 
-#### Datos simples
+## Datos simples
 
-para psar datos desde nuestros controladores hacia las plantillas de html haremos uso de los elementos que nos brinda el motor de plantillas thymeleaf para ello creamos un archivo html con el siguiente marcado
+Para pasar datos desde nuestros controladores hacia las plantillas de html haremos uso de los elementos que nos brinda el motor de plantillas thymeleaf para ello creamos un archivo html con el siguiente marcado
 
 ```html
 <!DOCTYPE html>
@@ -17,13 +17,11 @@ para psar datos desde nuestros controladores hacia las plantillas de html haremo
 </html>
 ```
 
-donde indicamos con un marcado especial el uso de un elemento que sera el que se encargue de esperar a que se envie el dato desde el controlador y este es el atributo que agregamos a la etiqueta span
+Donde indicamos con un marcado especial el uso de un elemento que será el que se encargue de esperar a que se envié el dato desde el controlador y este es el atributo que agregamos a la etiqueta span.
 
 > th:text="${nombre}"
 
-Ahora cuando definamos dentro de nuestro controlador un parametro que pasaremos este sera el lugar donde se carga dicho valor
-
-ahora creamos un nuevo controlador con el siguiente codigo
+Ahora cuando definamos dentro de nuestro controlador un parámetro que pasaremos este será el lugar donde se carga dicho valor, creamos un nuevo controlador con el siguiente código.
 
 ```java
 package com.proyecto.controller;
@@ -56,15 +54,15 @@ public class PasarValoresController {
 }
 ```
 
-como hicimos con el ejemplo de como llamar a la plantilla aqui vemos las diferentes formas que tenemos para poder pasar valores del controlador hacia la plantilla html
+como hicimos con el ejemplo de llamar a la plantilla aquí vemos las diferentes formas que tenemos para poder pasar valores del controlador hacia la plantilla html.
 
-En el prime metodo como retornamos una cadena, para poder pasar los datos usaremos el objeto Model de Spring para poder definir attibitos que se agregan a la respuesta http que este haciendo en ese momento el cliente, y con ello se retorna la plantilla mas un modelo con datos que son los basicos par-valor, por ello usamos la propiedad addAttribute\(&lt;nombre parametro&gt;,&lt;valor parametro&gt;\).
+En el primer método como retornamos una cadena, para poder pasar los datos usaremos el objeto Model de Spring para poder definir atributos que se agregan a la respuesta http que esté haciendo en ese momento el cliente, y con ello se retorna la plantilla más un modelo con datos que son los básicos par-valor, por ello usamos la propiedad addAttribute\(&lt;nombre parámetro&gt;,&lt;valor parámetro&gt;\).
 
-En el segundo caso el objeto ModelAndView recibe por medio de una propiedad addObject un elelemnto que debe retornar junto con la plantilla cunado esta es solicitada por el cliente.
+En el segundo caso el objeto ModelAndView recibe por medio de una propiedad addObject un elemento que debe retornar junto con la plantilla cuando esta es solicitada por el cliente.
 
-#### Datos Complejos
+## Datos Complejos
 
-Ahora si necesitamos pasar mas de un valor hacia la plantilla lo que podemos hacer es enviar un objeto con los elementos que necesitamos mostrar en dicha plantilla para ello creamos una nueva plantilla con el siguiente marcado:
+Ahora si necesitamos pasar más de un valor hacia la plantilla lo que podemos hacer es enviar un objeto con los elementos que necesitamos mostrar en dicha plantilla para ello creamos una nueva plantilla con el siguiente marcado:
 
 ```html
 <!DOCTYPE html>
@@ -82,7 +80,7 @@ Ahora si necesitamos pasar mas de un valor hacia la plantilla lo que podemos hac
 </html>
 ```
 
-ahora creamos una nueva clase controller para hacer el paso del objeto hacia nuestra plantilla
+Ahora creamos una nueva clase controller para hacer el paso del objeto hacia nuestra plantilla
 
 ```java
 package com.proyecto.controller;
@@ -115,7 +113,7 @@ public class ComplejoController {
 }
 ```
 
-adicionalmente tenemos que crear un paquete con el nombre "**model**", y dentro del paquete creamos una clase con el siguiente codigo
+Adicionalmente tenemos que crear un paquete con el nombre "**model**", y dentro del paquete creamos una clase con el siguiente código
 
 ```java
 package com.proyecto.model;
@@ -154,21 +152,19 @@ public class Persona {
 }
 ```
 
-con esto al ejeuctar nuestra app e ingresar al mavegado por la url
+Con esto al ejeuctar nuestra app e ingresar al navegador por la url
 
 > [http://localhost:8080/complex/datocomplex](http://localhost:8080/complex/datocomplex)
 
-podemos ver la siguiente informacion en pantalla
+Podemos ver la siguiente información en pantalla
 
 ![](/assets/Captura de pantalla 2017-01-31 a las 16.15.42.png)
 
-esto significa que todo ha esta de forma correcta y que nuestros datos se estan pasando desde el controlador a la plantilla, pasados por medio de un objeto.
+Esto significa que todo ha esta de forma correcta y que nuestros datos se estan pasando desde el controlador a la plantilla, pasados por medio de un objeto.
 
-#### Lista de datos
+## Lista de datos
 
-cuando neceitamos pasar una lista de datos desde el controlador a la vista debemos realizar las siguientes codificaciones
-
-primero creamos la clase en java para enviar el listado de personas
+Cuando necesitamos pasar una lista de datos desde el controlador a la vista debemos realizar las siguientes codificaciones, primero creamos la clase en java para enviar el listado de personas
 
 ```java
 package com.proyecto.controller;
@@ -202,9 +198,9 @@ public class ListaController {
 }
 ```
 
-lo que hemos hecho es crear un metodo que retorne una List de java en este caso con datos de personas que para niesrro ejemplo la realizamos de la manera mas simple creando un objeto Lista y añadiendo los objetos correspondientes a la lista que vamos a pasar a la vista
+Lo que hemos hecho es crear un método que retorne una List de java en este caso con datos de personas que para nuestro ejemplo la realizamos de la manera más simple creando un objeto Lista y añadiendo los objetos correspondientes a la lista que vamos a pasar a la vista
 
-en el metodo que envia los parametros hacia la plantilla, en la propiedad **addAtributte**, en el valor del parametro pasamos el llamado al metodo que retorna la lista en este caso **getPersonas\(\)** y listo con eso ya definimos que enviaremos un objeo con la lsita de personas hacia la plantilla, en la cual debemos de agregar el siguiente marcado para poder recuperar los datos y mostrarlos en la pantalla.
+en el método que envía los parámetros hacia la plantilla, en la propiedad **addAtributte**, en el valor del parámetro pasamos el llamado al método que retorna la lista en este caso **getPersonas\(\)** y listo con eso ya definimos que enviaremos un objeto con la lista de personas hacia la plantilla, en la cual debemos de agregar el siguiente marcado para poder recuperar los datos y mostrarlos en la pantalla.
 
 ```html
 <!DOCTYPE html>
@@ -232,9 +228,9 @@ en el metodo que envia los parametros hacia la plantilla, en la propiedad **addA
 </html>
 ```
 
-al ejecutar la aplicacion obtendremos el siguiente resultado en el navegador.
+Al ejecutar la aplicación obtendremos el siguiente resultado en el navegador.
 
 ![](/assets/Captura de pantalla 2017-01-31 a las 17.06.34.png)
 
-como podemos ver segun los ejemplos realizados spring nos permite de una forma simple el poder pasar parametros desde nuestos controladores hacia las vistas, solo debemos de tener en cuenta que datos vamos a enviar para poder crear los metodos y objetos necesarios para tenerlos a disposicion de nuestras vistas.
+Como podemos ver según los ejemplos realizados spring nos permite de una forma simple el poder pasar parámetros desde nuestros controladores hacia las vistas, solo debemos de tener en cuenta que datos vamos a enviar para poder crear los métodos y objetos necesarios para tenerlos a disposición de nuestras vistas.
 

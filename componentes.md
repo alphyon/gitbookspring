@@ -1,8 +1,8 @@
-Componentes Spring
+# Componentes Spring
 
-Los componentes de Spring son elelemntos que permiten de una manera mas practica el cargar objetos, esto es debido a que spring utiliza la inyeccion de dependencias de una forma muy sencilla ya que solo al hacer una anotacion @componet, nuestra clase se convierte en un elemento que se carga en memoria y estara a disposicion de su utilizacion cuando este sea llamado, en otros objetos que lo necesiten.
+Los componentes de Spring son elementos que permiten de una manera más practica el cargar objetos, esto es debido a que spring utiliza la inyección de dependencias de una forma muy sencilla ya que solo al hacer una anotacion **@componet**, nuestra clase se convierte en un elemento que se carga en memoria y estará a disposición de su utilización cuando este sea llamado, en otros objetos que lo necesiten.
 
-para crear un componente creamos una clase con el siguiente codigo, como un buena practica los componentes se guardan en un paquete.
+Para crear un componente creamos una clase con el siguiente código, como un buena práctica los componentes se guardan en un paquete.
 
 ```java
 package com.proyecto.components;
@@ -21,9 +21,7 @@ public class EjemploComponent {
 }
 ```
 
-en este caso lo basico de dicho componentes es la anotacion @Component y el nombre que damos a este ya que este sera lo que nos permite el aceder a el.
-
-para usar este control creamos otra clase en nuestros controladores, hacemos el sigueinte codigo
+En este caso lo básico de dicho componentes es la anotación **@Component** y el nombre que damos a este ya que este sera lo que nos permite el aceder a el. Para usar este control creamos otra clase en nuestros controladores, hacemos el siguiente código
 
 ```java
 package com.proyecto.controller;
@@ -51,9 +49,9 @@ public class ComponentController {
 }
 ```
 
-Lo nuevo de esta clase es la parte donde hacemos el llamado a nuestro componente para ello usamos dos anotaciones una es @autowired su funcion es buscar beans\(que en este caso son los componentes\) para enlazarlos a la clase que estamos usando, y la anotacion @Qualifier permite el definir especificamente que componente vamos a utilizar, esta anotacion se usa para evitar errores por alguna ambiguedad en el nombre  de algunos de los componentes.
+Lo nuevo de esta clase es la parte donde hacemos el llamado a nuestro componente para ello usamos dos anotaciones una es **@autowired** su función es buscar beans\(que en este caso son los componentes\) para enlazarlos a la clase que estamos usando, y la anotación **@Qualifier** permite el definir específicamente que componente vamos a utilizar, esta anotación se usa para evitar errores por alguna ambigüedad en el nombre de algunos de los componentes.
 
-cremos una vista solo para realizar una prueba de la carga del compnente, en nuestra carpeta de templates creamos el archivo componente.html y agregamos el siguiente marcado
+Creamos una vista solo para realizar una prueba de la carga del componente, en nuestra carpeta de **templates** creamos el archivo **componente.html** y agregamos el siguiente marcado
 
 ```html
 <!DOCTYPE html>
@@ -68,21 +66,19 @@ cremos una vista solo para realizar una prueba de la carga del compnente, en nue
 </html>
 ```
 
-al ejecutar nuestro servidor y probar la url
+Al ejecutar nuestro servidor y probar la url
 
 > [http://localhost:8080/component/test](http://localhost:8080/component/test)
 
-en la pagina solo nos carga el mensaje de la vista
+En la página solo nos carga el mensaje de la vista
 
 ![](/assets/Captura de pantalla 2017-03-10 a las 11.39.54.png)
 
 Ahora en la consola de nuestro server podemos observar una salida
 
-![](/assets/Captura de pantalla 2017-03-10 a las 11.40.08.png)que es el mensaje que definimos en la clase que anotamos con @Component, que su funcion era escribir en el log un mensaje, lo importante en este caso es enfocarnos en la manera en como spring nos permite reutilizar elementos, se hace de una manera en la cual nos debemos mas enfocar en nuestra logica que en las configuraciones para poder utilizarlos.
+![](/assets/Captura de pantalla 2017-03-10 a las 11.40.08.png)Que es el mensaje que definimos en la clase que anotamos con @Component, que su función era escribir en el log un mensaje, lo importante en este caso es enfocarnos en la manera en como spring nos permite reutilizar elementos, se hace de una manera en la cual nos debemos más enfocar en nuestra lógica que en las configuraciones para poder utilizarlos.
 
-Vamos a crear un componente mas y lo vamos a asociar a una configuracion que nos va ser util para definir los tiempos de ejecucion de un request
-
-para ello creamos una clase con el sigueinte codigo
+Vamos a crear un componente más y lo vamos a asociar a una configuración que nos va ser útil para definir los tiempos de ejecución de un request, para ello creamos una clase con el siguiente código
 
 ```java
 package com.proyecto.components;
@@ -101,7 +97,8 @@ public class RequestTimeComponent extends HandlerInterceptorAdapter{
     private static final Log LOGGER = LogFactory.getLog(RequestTimeComponent.class);
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+    public boolean preHandle(HttpServletRequest request, 
+    HttpServletResponse response, Object handler)
             throws Exception {
         request.setAttribute("startTime", System.currentTimeMillis());
         return true;
@@ -109,7 +106,7 @@ public class RequestTimeComponent extends HandlerInterceptorAdapter{
 
     @Override    
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, 
-    Object handler, Exception ex)
+                                    Object handler, Exception ex)
             throws Exception {
         long startTime = (long)request.getAttribute("startTime");
         LOGGER.info("Request Time: " + (System.currentTimeMillis()-startTime) 
@@ -118,11 +115,11 @@ public class RequestTimeComponent extends HandlerInterceptorAdapter{
 }
 ```
 
-esta componente que cremos se encarga de que en cada peticion que hagamos se dispare un metodo que se ejecuta antes que otros, y guardara el tiempo en milisegundos, que utilizaremos para calcular el tiempo total de la peticion que lanzaremos con el segundo metodo que se ejecutar despues que se complete la peticion que lanzamos
+Este componente que creamos se encarga de que en cada petición que hagamos se dispare un método que se ejecuta antes que otros, y guardara el tiempo en milisegundos, que utilizaremos para calcular el tiempo total de la petición que lanzaremos con el segundo método que se ejecuta después que se complete la petición que lanzamos
 
-Pero para que esto se ejecute y funcione como esperamos debemos de hacer un paso adicional y es crear un interceptor que sera el encargado de que se lanze la ejecucion de los metodos anteriores.
+Pero para que esto se ejecute y funcione como esperamos debemos de hacer un paso adicional y es crear un interceptor que será el encargado de que se lance la ejecución de los métodos anteriores.
 
-creamos un paquete llamado **configuration** para crear una clase de configuracion con el siguiente codigo
+Creamos un paquete llamado **configuration** para crear una clase de configuración con el siguiente código
 
 ```java
 package com.proyecto.configuration;
@@ -149,7 +146,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 }
 ```
 
-hoy cada vez que hagamos una peticion al servidor podemos ver en las trazas por el componente que creamos el tiempo que se ejecuta cada peticion
+Cada vez que hagamos una petición al servidor podemos ver en las trazas, por el componente que creamos el tiempo que se ejecuta cada petición
 
-![](/assets/Captura de pantalla 2017-03-10 a las 15.57.25.png)esto es gracias a el componente creado y la clase de configuracion que creamos.
+![](/assets/Captura de pantalla 2017-03-10 a las 15.57.25.png)Esto es gracias a el componente creado y la clase de configuración que se crea.
 

@@ -1,8 +1,8 @@
-> ## Entities JPA.
+## Entities JPA
 
-Ahora que ya tenemos las configuraciones elaboradas vamos acrear una clase del tipo Entity que estara directamente relacionada con una tabla en el esquema de la base de datos que tendremos.
+Ahora que ya tenemos las configuraciones elaboradas vamos a crear una clase del tipo Entity que estará directamente relacionada con una tabla en el esquema de la base de datos que tendremos.
 
-Primero creamos un paquete donde guadaremos nuestras entidades, entonces cramos el paquete **entity, **dentro del paquete creamos una clase con el siguiente codigo , en este caso la clase tiene una varaicion para poder ser utilizada con oracle.
+Primero creamos un paquete donde guardaremos nuestras entidades, entonces creamos el paquete entity, dentro del paquete creamos una clase con el siguiente código, en este caso la clase tiene una variación para poder ser utilizada con Oracle.
 
 ```java
 package com.proyecto.entity;
@@ -77,7 +77,7 @@ public class Curso {
 }
 ```
 
-si queremos utilizarla con  mysql solo debemos de cambiar las configuraciones para la propiedad del id del codigo en este caso debe quedar de esta forma.
+Si queremos utilizarla con  mysql solo debemos de cambiar las configuraciones para la propiedad del id del código en este caso debe quedar de esta forma.
 
 ```java
 @Id
@@ -86,14 +86,14 @@ si queremos utilizarla con  mysql solo debemos de cambiar las configuraciones pa
 private int id;
 ```
 
-Ahora si ejecutamos el servidor en sus trazas veremos, que se muestra una sentencia sql, esto es por que al usar Hibernate estmos utiizando un ORM, lo cual realiza un mapeo de una clase a un esquema de la base de datos entonces al hacer esto y por la configuracion
+Ahora si ejecutamos el servidor en sus trazas veremos, que se muestra una sentencia SQL, esto es porque al usar Hibernate estamos utilizando un ORM, lo cual realiza un mapeo de una clase a un esquema de la base de datos entonces al hacer esto y por la configuración
 
 ```yaml
 hibernate:
     ddl-auto: create-drop
 ```
 
-cada vez que se realize un despligue limpia y crea el esquema de la base de datos, al ejecutar el servidor en su traza podremos ver la creacion de los objetos de la base de datos segun las clases que tengamos anotadas como entidades JPA.
+Cada vez que se realice un despliegue, se limpia y crea el esquema de la base de datos, al ejecutar el servidor en su traza podremos ver la creación de los objetos de la base de datos según las clases que tengamos anotadas como entidades JPA.
 
 ![](/assets/Captura de pantalla 2017-03-22 a las 18.37.26.png)
 

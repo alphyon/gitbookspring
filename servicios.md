@@ -1,10 +1,10 @@
 # Servicios
 
-Un servicio es algo que podriamos definir como un elemento dentro de nuestros aplicaciones que setisfacen o complementan funcionalidades que no son al 100% parte de la logica del negocio, pero que son necesarias para que se cumpla el objetivo por el cual se esta desarrollando la aplicacion, estos elemetos podriamos identificarlos como los que nos sirven para hacer la gestion contra una base de datos, crear archivos, gestion de logs, servicios web u otros.
+Un servicio es algo que podríamos definir como un elemento dentro de nuestras aplicaciones, que satisfacen o complementan funcionalidades que no son al 100% parte de la lógica del negocio, pero que son necesarias para que se cumpla el objetivo por el cual se está desarrollando la aplicación, estos elementos podríamos identificarlos como los que nos sirven para hacer la gestión de una base de datos, crear archivos, gestión de logs, servicios web u otros.
 
-Vamos a crear un servicio, el cual a una clase que ya hemos creado lo pasara la informacion que esta debe de pasar a la vista, reutilizaremos la clase del controlador de la Lista de personas que creamos en la seccion [Compartiendo datos](/compartiendo-datos.md) en el apartado **lista de datos.**
+Vamos a crear un servicio, el cual a una clase que ya hemos creado lo pasara la información que esta debe de pasar a la vista, reutilizaremos la clase del controlador de la Lista de personas que creamos en la sección [Compartiendo datos](/compartiendo-datos.md) en el apartado **lista de datos.**
 
-Este es el codigo que modificaremos
+Este es el código que modificaremos
 
 ```java
 package com.proyecto.controller;
@@ -38,7 +38,7 @@ public class ListaController {
 }
 ```
 
-primero vamos a crear paquetes, para mantener el orden de nuestras clases crearemos dos paquetes adicionales, uno con el nombre de **servicie, **dentro de este paquete creamos otro con el nombre **impl**, dentro del primer paquete creamos una interface con el siguiente codigo.
+Primero vamos a crear paquetes, para mantener el orden de nuestras clases crearemos dos paquetes adicionales, uno con el nombre de **servicie, **dentro de este paquete creamos otro con el nombre **impl**, dentro del primer paquete creamos una interface con el siguiente código.
 
 ```java
 package com.proyecto.service;
@@ -52,7 +52,7 @@ public interface EjemploServicio {
 }
 ```
 
-en el otro paquete creamos una clase, con el codigo que implenta la inteface que creamos,  agregamos el siguiente codigo.
+En  el  paquete **impl** creamos una clase, con el código que implenta la inteface que creamos,  agregamos el siguiente código.
 
 ```
 package com.proyecto.service.impl;
@@ -81,11 +81,11 @@ public class EjmploServicioImp implements EjemploServicio {
 }
 ```
 
-en esta clase usamos la anotacion @service, que es una anotacion especial para identificar los beans que se usaran como servicios, aunque estos elementos son componetes de spring, pero se anotan de esta manera por semantica y en casos que sea necesario identifcar exactamente la especificacion de dichos componenetes.
+En esta clase usamos la anotación **@service**, que es una anotación especial para identificar los beans que se usaran como servicios, aunque estos elementos son componentes de spring, pero se anotan de esta manera por semántica y en casos que sea necesario identificar exactamente la especificación de dichos componentes.
 
-Aqui solamnete lo que hacemos es meter una lista de datos, solo es un ejemplo base pero podriamos pones una logica para extraer los datos de una base de datos.
+Aquí solamente lo que hacemos es meter una lista de datos, solo es un ejemplo base, pero podríamos poner una lógica para extraer los datos de una base de datos.
 
-Ahora para usar el servicio, modificamos la clase que tenemos para mostrar la lista de personas en la vista con el sigueinte codigo.
+Ahora para usar el servicio, modificamos la clase que tenemos para mostrar la lista de personas en la vista con el siguiente código.
 
 ```java
 package com.proyecto.controller;
@@ -113,13 +113,11 @@ public class ListaController {
 }
 ```
 
-al ejecutar la url
+Al ejecutar la url
 
-> http://localhost:8080/lista
+> [http://localhost:8080/lista](http://localhost:8080/lista)
 
-obtendremos la lista de las personoas pero en este caso la obtenemos desde el servicio y no como estaba declarada antes en el mismo controlador.
+Obtendremos la lista de las personas pero en este caso la obtenemos desde el servicio y no como estaba declarada antes en el mismo controlador.
 
 ![](/assets/Captura de pantalla 2017-03-10 a las 18.25.20.png)
-
-
 
