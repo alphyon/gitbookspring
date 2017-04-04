@@ -18,4 +18,5 @@
 * [Entities JPA](entities-jpa.md)
 * [Repositorio](repositorio.md)
 * [Spring Security](spring-security.md)
+* [Spring Rest](spring-rest.md)
 
